@@ -1,260 +1,143 @@
-
-
+/* RESET */
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background:white; /* plain background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1{
-    text-align: center;
-}
-
-.robot{
     margin-top: 20px;
-   display: grid;
-   justify-content: center;
-   /* animation: situp 2s infinite; */
+    font-size: 36px;
+    text-align: center;
+    color: #333;
 }
 
-@keyframes situp{
-    0%,100%{
-        margin: 0;
-    }
-     50%{
-        margin-top:35px;
-    }
-    
+/* BUTTON GROUP (all buttons in one line) */
+.btn-group{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-/* .robot{
-    animation: diagonal 2s infinite;
-} */
-
-@keyframes diagonal{
-    0%,50%,100%{
-        transform: rotate(0deg);
-    }
-    25%{
-        transform: rotate(10deg);
-    }
-    75%{
-        transform: rotate(-10deg);
-    }
+/* BUTTON STYLING */
+button{
+    background-color: #ff914d;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s ease-in-out;
+    font-weight: 600;
 }
-/* 
-.upperbody{
-    animation: bs 2s infinite;
-} */
 
+button:hover{
+    background-color:#d86d28;
+    transform:scale(1.08);
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+/* CLEAN ROBOT — NO CARD, NO BACKGROUND BOX */
+.robot{
+    margin-top: 70px;
+    display: grid;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+/* BODY PARTS (unchanged) */
 .head{
     width: 100px;
     height: 100px;
     background-color: chocolate;
     border-radius: 45px 45px 0 0;
     margin-left:59px;
-    /* animation: hs 2s infinite; */
-    /* animation: hshrink 2s infinite; */
 }
 
-@keyframes hshrink{
-    0%,100%{
-        height: 100px;
-    }
-    50%{
-        height:85px;
-    }
-}
-
-/* @keyframes hs{
-    0%,100%{
-        height: 100px;
-        margin-left:59px;
-    }
-    50%{
-        height:115px;
-    }
-} */
-
-
-/* .robot{
-    animation: jump 2s infinite;
-}  */
 .tummy{
     width: 150px;
     height: 150px;
     background-color: chocolate;
     border-radius: 35px;
     display: inline-block;
-    /* animation: bs 2s infinite; */
-    /* animation: bshrink 2s infinite; */
-}
-/* @keyframes bs{
-    0%,100%{
-        height: 150px;
-    }
-    50%{
-        height: 165px;
-    }
-} */
-
-@keyframes bshrink{
-    0%,100%{
-        height: 150px;
-    }
-    50%{
-        height: 120px;
-    }
 }
 
-
-.lefthand{
+.lefthand, .righthand{
     width:30px;
     height: 80px;
     background-color: chocolate;
     display: inline-block;
     margin-bottom: 55px;
     border-radius: 4px;
-    /* animation: lrs 2s infinite; */
-    /* animation:lrshrink 2s infinite; */
-     
 }
 
-.righthand{
-    width:30px;
-    height: 80px;
-    background-color: chocolate;
-    display: inline-block;
-    margin-bottom: 55px;
-    border-radius: 4px;
-    /* animation: lrs 2s infinite; */
-    /* animation:lrshrink 2s infinite; */
-}
-
-/* @keyframes lrs{
-    0%,100%{
-        height: 80px;
-    }
-    50%{
-        height: 100px;
-    }
-} */
-
-@keyframes lrshrink{
-    0%,100%{
-        height: 80px;
-    }
-    50%{
-        height: 50px;
-        /* margin-top: -20px; */
-    }
-}
-
-
-
-/* .lowerbody{
-    animation:situpleg 2s infinite; 
-     animation: lrs 2s infinite;
-} */
-
-@keyframes situpleg{
-    0%{
-        margin: 0;
-    }
-    50%{
-        margin-top: -25px;
-    }
-}
-
-.leftleg{
+.leftleg, .rightleg{
     width: 30px;
     height: 90px;
     background-color: chocolate;
     display: inline-block;
-    margin-left: 75px;
     margin-top: -10px;
     border-radius: 4px;
-    
 }
 
-.rightleg{
-    width: 30px;
-    height: 90px;
-    background-color: chocolate;
-    display: inline-block;
-    margin-left: 15px;
-    margin-top: -10px;
-    border-radius: 4px; 
+.leftleg{ margin-left: 75px; }
+.rightleg{ margin-left: 15px; }
 
-}
+/* ANIMATIONS (unchanged) */
 
 .robot.jump{
     animation: jump 2s infinite;
 }
- @keyframes jump{
-    0%,100%{
-        transform: translateY(0);
-    }
-      50%{
-        transform: translateY(-50px);
-    }
-   
+@keyframes jump{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-50px); }
 }
 
 .robot.sleep{
-animation: sleep 5s infinite;
+    animation: sleep 5s infinite;
 }
-
 @keyframes sleep{
-      0%{
-        transform: skew(0);
-    }
-      50%,100%{
-        transform: skew(45deg);
-    }
+    0%{ transform: skew(0); }
+    50%,100%{ transform: skew(45deg); }
 }
 
 .robot.run{
     animation: run 2s infinite;
 }
-
 @keyframes run{
-     0%,100%{
-        transform: scale(0);
-    }
-      50%{
-        transform: scale(0.8);
-        
-        
-    }
+    0%,100%{ transform: scale(0); }
+    50%{ transform: scale(0.8); }
 }
 
 .robot.comefaster{
     animation: comefaster 3s infinite;
 }
-
 @keyframes comefaster{
-       0%{
-        transform: scale(0);
-    }
-      50%,100%{
-        transform: scale(40px);
-        
-    }
+    0%{ transform: scale(0); }
+    50%,100%{ transform: scale(40px); }
 }
 
 .robot.backwalk{
     animation: backwalk 4s infinite;
 }
-
 @keyframes backwalk{
-     0%{
-        transform: scale(0);
-    }
-      50%{
-        transform: skew(10deg,20deg);
-        
-    }
+    0%{ transform: scale(0); }
+    50%{ transform: skew(10deg,20deg); }
     100%{
         margin-left: -80px;
         margin-top: 100px;
@@ -264,15 +147,9 @@ animation: sleep 5s infinite;
 .robot.frontwalk{
     animation: frontwalk 4s infinite;
 }
-
 @keyframes frontwalk{
-     0%{
-        transform: scale(0);
-    }
-      50%{
-        transform: skew(10deg,20deg);
-        
-    }
+    0%{ transform: scale(0); }
+    50%{ transform: skew(10deg,20deg); }
     100%{
         margin-left: 90px;
         margin-bottom: 100px;
@@ -282,14 +159,7 @@ animation: sleep 5s infinite;
 .robot.walk{
     animation:walk 4s infinite;
 }
-
 @keyframes walk{
-      0%{
-        transform: translate(0);
-    }
-      50%,100%{
-        transform: translateY(80px);
-        
-    }
-    
+    0%{ transform: translate(0); }
+    50%,100%{ transform: translateY(80px); }
 }
