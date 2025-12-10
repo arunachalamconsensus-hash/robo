@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Instructions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Robot Instructions</h1>
+    <button id="jump" onclick="animationfunc('jump')">Jump</button>
+    <button id="walk" onclick="animationfunc('walk')">Walk</button>
+    <button id="runaway" onclick="animationfunc('run')">Run</button>
+    <button id="comefaster" onclick="animationfunc('comefaster')">Come</button>
+    <button id="frontwalk" onclick="animationfunc('frontwalk')">Forward Walk</button>
+    <button id="backwalk" onclick="animationfunc('backwalk')">BackWard Walk</button>
+    <button id="sleep" onclick="animationfunc('sleep')">Sleep</button>
+    <!-- <button id="sleep" onclick="animationfunc()">SitUps</button> -->
+    <div class="robot" id="container">
+        <div class="upperbody">
+            <div class="head"></div>
+            <div class="lefthand"></div>
+            <div class="tummy"></div>
+            <div class="righthand"></div>
+        </div>
+        <div class="lowerbody">
+            <div class="leftleg"></div>
+            <div class="rightleg"></div>
+        </div>
+    </div>
+</body>
+<script >
+    function animationfunc(instruction){
+        var robot=document.getElementById('container');
+        robot.className="robot"; //reset to base class
+        robot.classList.add(instruction);
+    }
+</script>
+</html>
+
+
